@@ -1,0 +1,23 @@
+python 2.6 en adelante
+
+Librerias
+
+Esto se puede hacer con el pip freeze a ver
+
+
+pip install flask
+pip install flask_mysqldb
+pip install flask-wtf
+pip install email_validator
+pip install flask-sqlalchemy
+pip install flask-bcrypt
+
+Comandos en Python
+
+import secrets
+secrets.token_hex(N.decaracteres)
+
+import os
+os.system('cls')
+
+

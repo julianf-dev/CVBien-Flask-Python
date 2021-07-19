@@ -1,0 +1,26 @@
+#Importamos el modelo de la BD para el usuario y la class sera nuestra tabla de la BD
+#Tabla usuario
+class User(db.Model):
+    id = db.Column(db.Intiger, primary_key=True)#columna, valor atributo, clave.
+    username = db.Column(db.String(20), unique=True, nullable=False) #columna, valor atributo, Valor.
+    username = db.Column(db.String(120), unique=True, nullable=False)
+    #vamos crear una imagén para el perfil de usuario, hash(20 caracteres) y una imagén por defecto
+    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
+    password = db.Column(db.String(60), nullable=False) # se ponen 60 por el algoritmo hashing
+    post = db.relationship('Post',backrefer='author', lazy=True) # lo que haces es una consulta para traer los post de la clase "Post"
+    #creamos un metodo para presentar la salida de un programa
+    def __repr__ (self):
+        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
+
+# Tabla de las publicaciones
+
+class Post(db.Model):
+    id = db.Column(db.Intiger, primary_key=True)
+    title = db.Column(db.String(100), nullable=False) #titulo de la publicación
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow ) #Muestra la fecha y hora de la publiación.
+    content = db.Coumn(db.Text, nullable=False)
+    def __repr__ (self):
+        return f"Post('{self.title}', '{self.date_posted}')"
+
+
+15La%o%To10
